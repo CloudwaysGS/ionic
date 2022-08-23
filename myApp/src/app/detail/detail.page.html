@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="desc">
+    <img
+      src="data:image/png;base64,{{produits?.produit.imageBlob}}"
+      alt=""
+    />
+    <h4>{{produits?.produit.prix}}F</h4>
+  </div>    
+      <div class="log">
+        <h4>{{ produits?.produit.nom }}</h4>
+        <p>{{ produits?.produit.description }}</p>
+      </div>
+</ion-content>

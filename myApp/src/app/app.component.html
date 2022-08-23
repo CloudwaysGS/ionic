@@ -1,0 +1,43 @@
+
+<ion-app color="favorite">
+<!-- <ion-item>Menu Item</ion-item> -->
+    <ion-buttons>
+      <ion-menu-button menu="first">
+      </ion-menu-button>
+    </ion-buttons>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink="/catalogue">Catalogue</ion-item>
+        <ion-item routerLink="/mesCommandes">Mes commandes</ion-item>
+        <ion-item>Panier</ion-item>
+        <ion-item routerLink="/authentification">Connexion</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+<!-- <ion-item>Menu Item</ion-item> -->
+  <ion-router-outlet id="main"></ion-router-outlet>
+<!-- Tabs -->
+<ion-tabs color="favorite">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="catalogue">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Catalogue</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="panier">
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>Panier</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="mesCommandes">
+      <ion-icon name="book"></ion-icon>
+      <ion-label>commandes</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-app>
+

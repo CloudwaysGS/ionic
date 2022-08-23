@@ -1,0 +1,37 @@
+.loader {
+      border: 16px solid #f3f3f3; 
+      border-top: 16px solid #FF8E00; 
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: spin 2s linear infinite;
+      margin-left: 30% ;
+      margin-top: 10%;
+    }
+    .load{
+      height: 60vh;
+    }
+
+    // .btn{
+    //   background-color: #FF8E00;
+    // }
+
+    ion-segment-button{
+      // --indicator-color: #FF8E00;
+      --color-checked: #FF8E00;
+      // --indicator-height:10px
+      --color-hover: black;
+    }
+
+    ion-slide{
+      background-color: #FF8E00;
+    }
+
+    
+    .card{
+      width: 100%;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
