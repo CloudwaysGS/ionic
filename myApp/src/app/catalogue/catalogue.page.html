@@ -1,6 +1,6 @@
-<ion-header color="favorite">
-  <ion-toolbar>
-    <ion-title>catalogue</ion-title>
+<ion-header>
+  <ion-toolbar color="favorite">
+    <ion-title color="favorite">catalogue</ion-title>
   </ion-toolbar>
 </ion-header>
 <ng-container *ngIf="produits == null">
@@ -11,55 +11,53 @@
 
 <ng-container *ngIf="produits != null">
 <ion-content [fullscreen]="true">
-  <ion-slides  pager="true" [options]="slideOpts">
-    <ion-slide>
-      <img src="{{pathImage}}/icon/menu.png">
+  <ion-range (ionChange)="onIonChange($event)"></ion-range>
+<ion-label>prix: {{ lastEmittedValue }}</ion-label>
+  <ion-slides color="favorite"  pager="true" [options]="slideOpts">
+    <ion-slide color="favorite">
+      <img src="{{pathImage}}/burger.jpg">
     </ion-slide>
-    <ion-slide>
-      <img src="{{pathImage}}/icon/ui.png">
-    </ion-slide>
-    <ion-slide>
-      <img src="{{pathImage}}/icon/menu.png">
+    <ion-slide color="favorite">
+      <img src="{{pathImage}}/menu.jpg">
+    </ion-slide >
+    <ion-slide color="favorite">
+      <img  src="{{pathImage}}/icon/menu.png">
     </ion-slide>
   </ion-slides>
 
-  <ion-segment >
-    <ion-segment-button color="favorite" (click)="clickchanged('burger')">
-      <ion-label>Burger</ion-label>
-    </ion-segment-button>
-    <ion-segment-button color="favorite" (click)="clickchanged('menu')">
-      <ion-label>Menu</ion-label>
-    </ion-segment-button>
-    <ion-segment-button color="favorite" (click)="clickchanged('menu')">
-      <ion-label>Prix</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+    <ion-segment  color="favorite">
+      <ion-segment-button color="favorite" (click)="clickchanged('burger')">
+        <ion-label>Burger</ion-label>
+      </ion-segment-button>
+      <ion-segment-button color="favorite" (click)="clickchanged('menu')">
+        <ion-label>Menu</ion-label>
+      </ion-segment-button>
+      <ion-segment-button color="favorite" (click)="presentAlert()">
+        <ion-label>Prix</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
   <ng-container *ngFor="let produit of produits">
     <ion-card>
       <ion-card-header>
-        <ion-card-content>
+        <!-- <ion-card-content> -->
           <img src="data:image/PNG;base64,{{produit?.imageBlob}}">  
-        </ion-card-content>
-        
+        <!-- </ion-card-content> -->
           <ion-card-subtitle> {{produit.nom}} 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{produit.prix}} Fcfa
           </ion-card-subtitle>
         
           <ion-card-title>
-          <a routerLink="/detail/{{produit.id}}">
-            <!-- <ion-card-title><small>{{produit.description}}</small></ion-card-title> -->
-            <ion-button color="favorite">Detail</ion-button>
-          </a>
+            <a routerLink="/detail/{{produit.id}}">
+              <!-- <ion-card-title><small>{{produit.description}}</small></ion-card-title> -->
+              <ion-button color="favorite">Detail</ion-button>
+            </a>
         </ion-card-title>
         
       </ion-card-header>
-      
-      
     </ion-card>
   </ng-container>
   
-  
-
 </ion-content>
 </ng-container>

@@ -4,16 +4,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="desc">
-    <img
-      src="data:image/png;base64,{{produits?.produit.imageBlob}}"
-      alt=""
-    />
-    <h4>{{produits?.produit.prix}}F</h4>
-  </div>    
-      <div class="log">
-        <h4>{{ produits?.produit.nom }}</h4>
-        <p>{{ produits?.produit.description }}</p>
-      </div>
+<ion-content infinite-scroll>
+  <ng-container *ngIf="produits.produit['@type'] == 'Menu'">
+    <!-- <h2>{{produits?.produit?.nom}}</h2> -->
+    <img src="data:image/png;base64,{{produits?.produit?.imageBlob}}" alt="...">
+    <p class="prix">  <ion-icon class="all" name="pricetags-outline"></ion-icon>{{produits?.produit?.prix}} FCFA</p>
+  </ng-container>  
+  <ng-container *ngIf="produits.produit['@type'] == 'Burger'">
+    <!-- <h2>{{produits?.burger?.nom}}</h2> -->
+    <img src="data:image/png;base64,{{produits?.produit?.imageBlob}}" alt="...">
+    <p class="prix"> <ion-icon class="all" name="pricetags-outline"></ion-icon>{{produits?.produit?.prix}} FCFA</p>
+  </ng-container> 
+  <ng-container *ngIf="produits.produit['@type'] == 'Burger'">
+    <p class="description">
+        {{produits.produit?.description}}
+    </p>
+  </ng-container>
+  <ng-container *ngIf="produits.produit['@type'] == 'Menu'">
+    <p  class="description">
+        {{produits?.produit?.description}}
+    </p>
+  </ng-container>
+
+   <div class="d-flex mb-4" class="qte">
+    
+    <ion-button color="favorite "
+      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+
+    <div class="form-outline">
+      <input id="form1" min="1" name="quantity" value="1" type="number" class="form-control" />
+    </div>
+
+    <ion-button  color="favorite"
+      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+      <ion-icon  name="add-outline"></ion-icon>
+    </ion-button>
+  </div>
+  <!-- Quantity -->
+
+  <ion-button class="add" color="favorite">Ajouter</ion-button>
 </ion-content>

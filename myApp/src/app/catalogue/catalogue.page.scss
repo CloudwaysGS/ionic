@@ -18,14 +18,22 @@
 
     ion-segment-button{
       // --indicator-color: #FF8E00;
-      --color-checked: #FF8E00;
+      // --color-checked: black;
       // --indicator-height:10px
-      --color-hover: black;
+      // --color-hover: black;
+      color: black;
+      // background-color: #FF8E00;
+    }
+    ion-segment{
+     
+      background-color: #FF8E00;
+    
+    }
+    ion-title{
+      color: black;
     }
 
-    ion-slide{
-      background-color: #FF8E00;
-    }
+    
 
     
     .card{

@@ -1,6 +1,6 @@
 ion-item{
-      --background: #3880ff;
-      --color: #fff;
+    //   --background: grey;
+    //   --color: #fff;
   }
   ion-button{
       --background: #FF8E00;
@@ -13,3 +13,6 @@ ion-item{
   ion-content{
       background-color: #FF8E00;
   }
+  .form-error{
+    color: red;
+  }   

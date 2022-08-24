@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController, RangeCustomEvent } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { Produit } from '../shared/models/produits';
 import { CatalogueService } from '../shared/services/catalogue.service';
+import { RangeValue } from '@ionic/core';
 
 
 
@@ -25,7 +27,25 @@ export class CataloguePage implements OnInit {
     }
   };
 
-  constructor(private servCata:CatalogueService) { }
+  constructor(private servCata:CatalogueService,private alertController: AlertController) { }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Important message',
+      message: 'This is an alert!',
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
+  
+  lastEmittedValue: RangeValue;
+
+  onIonChange(ev: Event) {
+    this.lastEmittedValue = (ev as RangeCustomEvent).detail.value;
+  }
+
+  
 
   ngOnInit() {
     this.servCata.all().subscribe((data)=>{
