@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AuthentificationPageRoutingModule } from './authentification-routing.module';
 
 import { AuthentificationPage } from './authentification.page';
+import { TokenService } from '../shared/services/token.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { AuthentificationPage } from './authentification.page';
     IonicModule,
     AuthentificationPageRoutingModule
   ],
-  declarations: [AuthentificationPage]
+  declarations: [AuthentificationPage],
+  providers:[TokenService]//////
 })
 export class AuthentificationPageModule {}

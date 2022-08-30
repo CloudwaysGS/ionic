@@ -41,20 +41,26 @@ export class CataloguePage implements OnInit {
   
   lastEmittedValue: RangeValue;
 
-  onIonChange(ev: Event) {
-    this.lastEmittedValue = (ev as RangeCustomEvent).detail.value;
-  }
-
-  
-
   ngOnInit() {
     this.servCata.all().subscribe((data)=>{
       this.produits = data.produits
       // console.log(this.produits);
       
+
     })
   }
 
+
+  onIonChange(event: any) {
+    this.produits= this.produits.filter(
+      data=>{
+        console.log(event.detail.value)
+          return data.prix >= event.detail.value.lower && 
+                  data.prix <= event.detail.value.upper
+              
+      }
+    )
+  }
   clickchanged(type:string){
     // alert("ok");
     switch (type) {

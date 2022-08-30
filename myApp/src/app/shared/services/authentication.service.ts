@@ -14,10 +14,25 @@ const apiUrl = environment.apiUrl
 export class AuthenticationService {
 
   url = `${apiUrl}/login_check`
+  urlClient = `${apiUrl}/clients`
+
+  token :any='';
 
   constructor(private http: HttpClient) { }
 
   login(credentials: Icredentials): Observable<Itoken>{
-    return this.http.post<Itoken>(this.url, credentials)
+    return this.http.post<Itoken>(this.url,credentials)
+  }
+/////////////////////Get Login//////////////////////////////////
+  getUrlClient(login: any){
+    return this.http.get(this.urlClient+'?login='+login)
+  }
+
+  getTokenClient(){
+    return this.token
+  }
+
+  setTokenClient(token: any){
+    this.token = token
   }
 }

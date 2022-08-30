@@ -27,10 +27,7 @@ const routes: Routes = [
     path: 'panier',
     loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
   },
-  {
-    path: 'mesCommandes',
-    loadChildren: () => import('./mes-commandes/mes-commandes.module').then( m => m.MesCommandesPageModule)
-  },
+  
   {
     path: 'authentification',
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
@@ -38,6 +35,14 @@ const routes: Routes = [
   {
     path: 'inscription',
     loadChildren: () => import('./inscription/inscription.module').then( m => m.InscriptionPageModule)
+  },
+  {
+    path: ':id/commande-client',
+    loadChildren: () => import('./commande-client/commande-client.module').then( m => m.CommandeClientPageModule)
+  },
+  {
+    path: 'livreur',
+    loadChildren: () => import('./livreur/livreur.module').then( m => m.LivreurPageModule)
   },
 ];
 

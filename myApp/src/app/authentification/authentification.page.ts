@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Icredentials } from '../shared/models/credentials';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { TokenService } from '../shared/services/token.service';
@@ -15,20 +16,20 @@ export class AuthentificationPage implements OnInit {
     password: ''
   }
 
-  constructor(private loginServ:AuthenticationService, private tokenServ: TokenService) { }
+  wet:any
+  constructor(private loginServ:AuthenticationService, private tokenServ: TokenService,private route:Router) { }
 
-  ngOnInit() {
+  async ngOnInit(){
+    this.wet=await
+    this.tokenServ.getToken()
   }
 
   onSubmit(): void{
-    console.log(this.form)
     this.loginServ.login(this.form).subscribe(
-      data => {
-        console.log(data.token),
-        this.tokenServ.saveToken(data.token)      
-      },
-      err => console.log(err)
+      data=>{
+        this.tokenServ.saveToken(data.token,data.id)
+      }
     )
-  }
-
 }
+}
+

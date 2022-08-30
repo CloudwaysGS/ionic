@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="favorite">
+    <ion-title>Vos dernières commandes</ion-title>
+  </ion-toolbar>
+  <ion-item color="favorite">
+   
+    <ion-input type="date" [(ngModel)]="date"></ion-input>
+  </ion-item>
+  
+</ion-header>
+
+<ion-list>
+  <ion-item>
+    <ion-select [(ngModel)]="filterText" interface="action-sheet" placeholder="choisir l'etat commandes">
+      <ion-select-option  value="en cours">En cours</ion-select-option>
+      <ion-select-option  value="en cours">En cours</ion-select-option>
+      <ion-select-option  value="termine">Terminé</ion-select-option>
+      <ion-select-option  value="annule">Annulé</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-content>
+  <!-- {{client|async|json}} -->
+  <ion-list *ngFor="let cmd of commandes|filter:date| filter:filterText">
+    <ion-item routerLink="liste-commandes">
+      <ion-label>
+        <h2>{{cmd.numeroCommande}}</h2>
+        <p>{{cmd.dateCommande}}</p>
+        <p>{{cmd.etat}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  

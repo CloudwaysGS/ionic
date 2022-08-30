@@ -18,7 +18,7 @@ export class DetailPage implements OnInit {
   let k = this.route.url.split('/')[(this.route.url.split('/').length)-1]
   this.servCata.produit$(k).subscribe((data)=>{ 
   this.produits=data
-  console.log(this.produits)
+  // console.log(this.produits)
         })
   }
 

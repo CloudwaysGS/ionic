@@ -1,25 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>detail</ion-title>
+
   </ion-toolbar>
+    <ion-toolbar>
+      <ion-buttons slot="start" >
+        <ion-back-button defaultHref="catalogue"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
 </ion-header>
+
+<ng-container *ngIf="produits!=undefined">
 
 <ion-content infinite-scroll>
   <ng-container *ngIf="produits.produit['@type'] == 'Menu'">
-    <!-- <h2>{{produits?.produit?.nom}}</h2> -->
     <img src="data:image/png;base64,{{produits?.produit?.imageBlob}}" alt="...">
     <p class="prix">  <ion-icon class="all" name="pricetags-outline"></ion-icon>{{produits?.produit?.prix}} FCFA</p>
-  </ng-container>  
+  </ng-container> 
+
   <ng-container *ngIf="produits.produit['@type'] == 'Burger'">
-    <!-- <h2>{{produits?.burger?.nom}}</h2> -->
     <img src="data:image/png;base64,{{produits?.produit?.imageBlob}}" alt="...">
     <p class="prix"> <ion-icon class="all" name="pricetags-outline"></ion-icon>{{produits?.produit?.prix}} FCFA</p>
   </ng-container> 
+
   <ng-container *ngIf="produits.produit['@type'] == 'Burger'">
     <p class="description">
         {{produits.produit?.description}}
     </p>
   </ng-container>
+  
   <ng-container *ngIf="produits.produit['@type'] == 'Menu'">
     <p  class="description">
         {{produits?.produit?.description}}
@@ -46,3 +55,4 @@
 
   <ion-button class="add" color="favorite">Ajouter</ion-button>
 </ion-content>
+</ng-container>

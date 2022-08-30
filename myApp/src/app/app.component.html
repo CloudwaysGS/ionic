@@ -5,6 +5,7 @@
       <ion-menu-button  menu="first">
       </ion-menu-button>
     </ion-buttons>
+    <ion-menu-toggle>
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar color="favorite">
@@ -14,12 +15,14 @@
     <ion-content>
       <ion-list>
         <ion-item routerLink="/catalogue">Catalogue</ion-item>
-        <ion-item routerLink="/mesCommandes">Mes commandes</ion-item>
+        <ion-item routerLink="/commande-client">Mes commandes</ion-item>
         <ion-item routerLink="/panier">Panier</ion-item>
         <ion-item routerLink="/authentification">Connexion</ion-item>
+        <ion-item (click)="logout()" >Deconnexion</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
+</ion-menu-toggle>
 <!-- <ion-item>Menu Item</ion-item> -->
   <ion-router-outlet id="main"></ion-router-outlet>
 <!-- Tabs -->

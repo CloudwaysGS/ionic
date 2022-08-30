@@ -3,6 +3,7 @@
     <ion-title color="favorite">catalogue</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ng-container *ngIf="produits == null">
   <div class="load">
     <div class="loader"></div>
@@ -11,10 +12,20 @@
 
 <ng-container *ngIf="produits != null">
 <ion-content [fullscreen]="true">
-  <ion-range (ionChange)="onIonChange($event)"></ion-range>
-<ion-label>prix: {{ lastEmittedValue }}</ion-label>
+  <!-- <ion-range ></ion-range> -->
+  
+  <ion-range color="favorite" (ionChange)="onIonChange($event)" 
+  min="1500" max="25000" color="favorite"
+  pin="true" [dualKnobs]="true" snaps="true"
+  ticks="true" 
+  >
+    filtre par prix<ion-label color="favorite" slot="start"></ion-label>
+    <ion-label color="favorite" slot="end"></ion-label>
+  </ion-range>
+
+<ion-label color="favorite">{{ lastEmittedValue }}</ion-label>
   <ion-slides color="favorite"  pager="true" [options]="slideOpts">
-    <ion-slide color="favorite">
+    <ion-slide color="favorite" color="favorite">
       <img src="{{pathImage}}/burger.jpg">
     </ion-slide>
     <ion-slide color="favorite">

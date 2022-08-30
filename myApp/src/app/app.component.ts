@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TokenService } from './shared/services/token.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private tokenServ:TokenService) {}
+
+
+  logout(){
+    this.tokenServ.clearToken()
+  }
 }
